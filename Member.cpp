@@ -32,8 +32,8 @@ using namespace std;
 	for(itr=followers.begin(); itr!=followers.end();++itr)
 	{
 		find=itr->second->following.find(this->id);
-
 		itr->second->following.erase(find);
+		followers.erase(itr);
 	}
           
       }
