@@ -5,9 +5,8 @@ using namespace std;
 #include "Member.h"
 
 
-Member avi, beni, chana;
-
-void test1() {
+void test_distructor()
+{
 	Member dana;
 	chana.follow(dana);
 	dana.follow(avi);
@@ -92,12 +91,12 @@ void test_follow()
 	}
 }
 
-int main() {
-	test_unfollow();
-	test_follow();
-	test_followmyself();
-	test_unfollowmyself();
-	test_followtwice();
+void test1() {
+
+	cout << "Follow Test:" << endl;
+
+	Member avi, beni, chana;
+	
 	cout << avi.numFollowers() << " " << avi.numFollowing() << endl; // 0 0
 	avi.follow(beni);
 	cout << avi.numFollowers() << " " << avi.numFollowing() << endl; // 0 1
@@ -112,8 +111,19 @@ int main() {
 	cout << endl;
 
 	cout << chana.numFollowers() << " " <<  chana.numFollowing() << endl; // 0 0
-	test1();
+	test_distructor();
 	cout << chana.numFollowers() << " " <<  chana.numFollowing() << endl; // 0 0
 	cout << avi.numFollowers() << " " <<  avi.numFollowing() << endl; // 0 0
 	cout << Member::count() << endl; // 3
+
+}
+
+int main() {
+	test_unfollow();
+	test_follow();
+	test_followmyself();
+	test_unfollowmyself();
+	test_followtwice();
+	test1();
+
 }
