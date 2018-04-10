@@ -111,5 +111,7 @@ int main() {
 	test_unfollowmyself();
 	test_followtwice();
 	test1();
+	
+	return 0;
 
 }
