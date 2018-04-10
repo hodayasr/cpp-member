@@ -52,6 +52,8 @@ void Member::follow(Member& b)
 {
    if(this->id!=b.id) // can't follow himself
    {
+	   if(following.find(b.id)==following.end())
+	   {
     pair<int,Member*> ptr; 
     
     //check that not follow b already
@@ -68,8 +70,8 @@ void Member::follow(Member& b)
 		ptr.first=this ->id;
 		ptr.second=this;
 		b.followers.insert(ptr);
-   }
-       
+	}
+	   } 
    }
 }
 
@@ -78,14 +80,18 @@ void Member::unfollow(Member& b)
 {
     if(this->id!=b.id)
     {
-    // remove from the map that follow after b
+  
+	    
    map<int,Member*>::iterator find;
-	find=b.followers.find(this->id);
-	b.followers.erase(find);
-
-   // remove from the map that follow b after this Member
-   find=following.find(b.id);
-	following.erase(find);
+	if((find=b.followers.find(this->id))!=b.followers.end())
+	{
+		  // remove from the map that follow after b
+		b.followers.erase(find);
+		
+		// remove from the map that b follow after me.
+		find=following.find(other.id);
+		following.erase(find);
+		}
     }
 }
 
