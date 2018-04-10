@@ -23,14 +23,22 @@ void test_followmyself()
     int numFollow = lenny.numFollowing();
     lenny.follow(lenny);
 	// check that number of following not change
-    if(lenny.numFollowing()!= numFollow)
-    {
-        cout<<"error - member can't follow himself"<<endl;
-    }
-
+    if(lenny.numFollowing()!= numFollow) cout<<"error - member can't follow himself"<<endl;
 	else cout<<" successful !"<<endl;
 
 }
+
+void test_followtwice()
+{
+	Member shira , adi ; 
+	adi.follow(shira);
+	int num=shira.numFollowers();
+	adi.follow(shira);
+	if(shira.numFollowers()!=num) cout<< "error - member can't follow twice "<<endl;
+	else cout<<" successful !"<<endl;
+	
+}
+
 void test_unfollow(){
 	Member hodaya ,adi ,michal; //yitzhak,moshe,hadar;
 	adi.follow(hodaya);
