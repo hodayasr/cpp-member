@@ -15,6 +15,22 @@ void test1() {
 	cout << "  " << avi.numFollowers() << " " <<  avi.numFollowing() << endl; // 1 0
 	cout << "  " << Member::count() << endl; // 4
 }
+
+void test_followmyself()
+{
+    Member lenny;;
+
+    int numFollow = lenny.numFollowing();
+    lenny.follow(lenny);
+	// check that number of following not change
+    if(lenny.numFollowing()!= numFollow)
+    {
+        cout<<"error - member can't follow himself"<<endl;
+    }
+
+	else cout<<" successful !"<<endl;
+
+}
 void test_unfollow(){
 	Member hodaya ,adi ,michal; //yitzhak,moshe,hadar;
 	adi.follow(hodaya);
