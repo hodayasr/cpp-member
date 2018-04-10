@@ -28,6 +28,17 @@ void test_followmyself()
 
 }
 
+void test_unfollowmyself()
+{
+    Member lenny;;
+    int numFollow = lenny.numFollowers();
+    lenny.unfollow(lenny);
+	// check that number of following not change
+    if(lenny.numFollowers()!= numFollow) cout<<"error - member can't unfollow himself"<<endl;
+	else cout<<" successful !"<<endl;
+
+}
+
 void test_followtwice()
 {
 	Member shira , adi ; 
