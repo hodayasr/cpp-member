@@ -54,25 +54,18 @@ void Member::follow(Member& b)
    {
 	   if(following.find(b.id)==following.end())
 	   {
-    pair<int,Member*> ptr; 
-    
-    //check that not follow b already
-	map<int,Member*>::iterator find;
-	find=followers.find(b.id);	
-	if(find == followers.end())
-	{
-// if not follow him - add b to Members of following
-		ptr.first=b.id;
-		ptr.second=&b;
-		following.insert(ptr);
+			pair<int,Member*> ptr;
+		   // add b to this following
+			ptr.first=b.id;
+			ptr.second=&b;
+			following.insert(ptr);
 
-// add this Member to b Members of followers
-		ptr.first=this ->id;
-		ptr.second=this;
-		b.followers.insert(ptr);
+		   // insert this to b followers
+			ptr.first=this ->id;
+			ptr.second=this;
+			b.followers.insert(ptr);
 	}
 	   } 
-   }
 }
 
 // unfollow other Member
