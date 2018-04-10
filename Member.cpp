@@ -89,7 +89,7 @@ void Member::unfollow(Member& b)
 		b.followers.erase(find);
 		
 		// remove from the map that b follow after me.
-		find=following.find(other.id);
+		find=following.find(b.id);
 		following.erase(find);
 		}
     }
