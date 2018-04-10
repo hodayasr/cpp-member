@@ -95,6 +95,9 @@ void test_follow()
 int main() {
 	test_unfollow();
 	test_follow();
+	test_followmyself();
+	test_unfollowmyself();
+	test_followtwice();
 	cout << avi.numFollowers() << " " << avi.numFollowing() << endl; // 0 0
 	avi.follow(beni);
 	cout << avi.numFollowers() << " " << avi.numFollowing() << endl; // 0 1
