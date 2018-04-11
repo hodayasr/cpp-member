@@ -40,7 +40,7 @@ void test_followtwice()
 }
 
 void test_unfollow(){
-	Member hodaya ,adi ,michal; //yitzhak,moshe,hadar;
+	Member hodaya ,adi ,michal;
 	adi.follow(hodaya);
 	michal.follow(hodaya);
 
